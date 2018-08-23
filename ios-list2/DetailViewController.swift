@@ -24,13 +24,19 @@ class DetailViewController: UIViewController {
     }
 
     func configureView(){
-       
+        // Bilder aus Xcassets-Datei
         if let detailViewDatas=detailViewData{
-            if let bundeslandName=bundesLand,
-                let unterTitle=untTitle{
+            
+            let name = detailViewDatas.name.replacingOccurrences(
+                of: "ü", with: "ue")
+            
+             if let okBundeslandName=bundesLand,
+                let okUnterTitle=untTitle,
+                let okMyimage=myImage{
                 
-                bundeslandName.text=detailViewDatas.name
-                unterTitle.text=detailViewDatas.capital
+                okBundeslandName.text=detailViewDatas.name
+                okUnterTitle.text=detailViewDatas.capital
+                okMyimage.image=UIImage(named: name)
             }
             
         }
